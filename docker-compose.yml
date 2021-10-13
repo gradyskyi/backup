@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  backup:
+    build: .
+    container_name: backup
+    ports:
+      - "55431:5432"
+    environment:
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - ./pgbackrest/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf
